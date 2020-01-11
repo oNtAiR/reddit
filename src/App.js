@@ -9,11 +9,21 @@ function App() {
       <h1>Top Posts From Reddit Development SubReddis</h1>
 
       <div className={SS.subName}>
+        <button>/webdev</button>
+        <button>/web_design</button>
         <button>Name</button>
         <button>Name</button>
         <button>Name</button>
-        <button>Name</button>
-        <button>Name</button>
+      </div>
+
+      <div className={SS.data}>
+        <article>
+          <h3>Post Title</h3>
+        </article>
+        <article>Data</article>
+        <article>Data</article>
+        <article>Data</article>
+        <article>Data</article>
       </div>
     </div>
   );
