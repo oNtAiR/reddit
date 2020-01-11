@@ -5,21 +5,29 @@ import SS from './main.module.scss'
 import Data from './components/data'
 class App extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      loading: false
+      loading: true,
+      tops: false
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
-  async handleClick(e) {
+   handleClick(e) {
     console.log(e.target.className)
     const url = (`https://www.reddit.com/r${e.target.className}/top/.json?count=20`);
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data)
+    fetch(url)
+    .then(resp => resp.json())
+    .then((data) => {
+      this.setState({tops: data})
+    })
+    
+    
+    
+    //console.log(this.state.tops.data.children[0])
+    console.log(this.state.loading)
   }
 
   componentDidMount() {
@@ -42,7 +50,7 @@ class App extends React.Component {
         <button>Name</button>
       </div>
 
-     {this.state.loading ? <div>loading</div> : < Data/>}
+     {this.state.tops.data ? < Data tops={this.state.tops} /> : <div>Loading</div>}
     </div>
 
     
