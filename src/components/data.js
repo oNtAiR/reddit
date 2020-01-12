@@ -25,7 +25,7 @@ class Data extends React.Component {
                       <div className={SS.text}>{n.data.selftext.substring(0, 200)}</div>
 
                       <div className={SS.read}>
-                          <a href={n.data.permalink}>View</a>
+                          <a href={n.data.permalink}>{this.props.sort}</a>
                       </div>
                       </article>
               )

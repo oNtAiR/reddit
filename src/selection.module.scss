@@ -1,0 +1,13 @@
+.select {
+    max-width: 900px;
+    border: 1px solid blue;
+    margin: 0 auto;
+
+    button {
+        background: red;
+        border: none;
+        border-radius: 20px;
+        font-size: 1.3rem;
+        padding: .5rem 1rem;
+    }
+}
