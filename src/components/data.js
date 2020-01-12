@@ -2,7 +2,7 @@ import React from 'react';
 import SS from './data.module.scss'
 import talking from '../IMG/talking.svg'
 import thumbs from '../IMG/thumbs.svg'
-import down from '../IMG/down.svg'
+
 class Data extends React.Component {
     
 
@@ -29,7 +29,7 @@ class Data extends React.Component {
                       <div className={SS.text}>{n.data.selftext.substring(0, 200)}</div>
 
                       <div className={SS.read}>
-                          <a href={n.data.permalink}>View</a>
+                          <a href={`https://www.reddit.com${n.data.permalink}`}>View</a>
                       </div>
                       </article>
               )

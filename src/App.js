@@ -4,6 +4,8 @@ import './App.css';
 import SS from './main.module.scss'
 import Data from './components/data'
 import Selection from './selection'
+import Subred from './components/subred'
+
 class App extends React.Component {
 
   constructor(props) {
@@ -38,6 +40,7 @@ class App extends React.Component {
    handleClick(e) {
      this.setState({loading: true})
     const subName = e.target.className
+    console.log(e.target.className)
     const url = (`https://www.reddit.com/r${e.target.className}/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
@@ -67,13 +70,7 @@ class App extends React.Component {
       <h1>Reddit Reader</h1>
       <h3>Pick Your /subreddit:</h3>
 
-      <div className={SS.subName}>
-        <button onClick={this.handleClick} className='/webdev'>/webdev</button>
-        <button onClick={this.handleClick} className={'/web_design'}>/web_design</button>
-        <button onClick={this.handleClick} className={'/programming'}>/programming</button>
-        <button onClick={this.handleClick} className={'/javascript'}>/javascript</button>
-        <button>Name</button>
-      </div>
+      < Subred handleClick={this.handleClick}/>
       <h3>Sort By:</h3>
      < Selection changeSelect={this.changeSelect}/>
 
