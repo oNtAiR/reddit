@@ -15,6 +15,14 @@ class Data extends React.Component {
        
 
       <div className={SS.data}>
+          {this.props.tops.data.children.map((n, k) => {
+              console.log(n.data.title)
+              return (
+                  <article key={k}>
+                      <h3>{n.data.title}</h3>
+                      </article>
+              )
+          })}
           {console.log(this.props.tops.data.children)}
         <article>
           <h3>{this.props.tops.data ? this.props.tops.data.children[0].data.title : 'no'}</h3>

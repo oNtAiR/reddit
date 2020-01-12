@@ -44,7 +44,7 @@ class App extends React.Component {
 
       <div className={SS.subName}>
         <button onClick={this.handleClick} className='/webdev'>/webdev</button>
-        <button>/web_design</button>
+        <button onClick={this.handleClick} className={'/web_design'}>/web_design</button>
         <button>Name</button>
         <button>Name</button>
         <button>Name</button>
