@@ -40,8 +40,17 @@ addButton() {
     list.push(newSub);
 
     this.setState({ list: list, newSub: ""})
+    
+    const  vv  = list;
+    const mm = JSON.stringify(vv)
+    localStorage.setItem('list', mm)
+    console.log(mm)
+    
+    
 
 }
+
+
 
 
   changeSelect(e) {
@@ -49,7 +58,7 @@ addButton() {
     this.setState({ selection: name})
     
     this.setState({loading: true})
-    console.log(this.state.tops.data)
+
     const url = (`https://www.reddit.com/r${this.state.subName}/${name}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
@@ -62,7 +71,7 @@ addButton() {
    handleClick(e) {
      this.setState({loading: true})
     const subName = e.target.className
-    console.log(e.target.className)
+ 
     const url = (`https://www.reddit.com/r${e.target.className}/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
@@ -75,11 +84,13 @@ addButton() {
   }
 
   componentDidMount() {
+    let vv = JSON.parse(localStorage.getItem('list'));
+    console.log(vv)
     const url = (`https://www.reddit.com/r/webdev/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
-      this.setState({tops: data, loading: false})
+      this.setState({tops: data, loading: false, list: vv ? vv : this.state.list})
     })
   }
 
