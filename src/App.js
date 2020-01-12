@@ -26,7 +26,7 @@ class App extends React.Component {
     
     
     
-    //console.log(this.state.tops.data.children[0])
+    //console.log(this.state.tops.data.children[0].data)
     console.log(this.state.loading)
   }
 

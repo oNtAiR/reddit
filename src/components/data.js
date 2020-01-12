@@ -16,33 +16,21 @@ class Data extends React.Component {
 
       <div className={SS.data}>
           {this.props.tops.data.children.map((n, k) => {
-              console.log(n.data.title)
+              console.log(n)
               return (
                   <article key={k}>
+                      <div className={SS.score}>{n.data.score}</div>
+                      <div className={SS.score}>{n.data.num_comments}</div>
                       <h3>{n.data.title}</h3>
+                      <div className={SS.text}>{n.data.selftext.substring(0, 200)}</div>
+
+                      <div className={SS.read}>
+                          <a href={n.data.permalink}>View</a>
+                      </div>
                       </article>
               )
           })}
-          {console.log(this.props.tops.data.children)}
-        <article>
-          <h3>{this.props.tops.data ? this.props.tops.data.children[0].data.title : 'no'}</h3>
-        </article>
-
-        <article>
-          <h3>Post Title</h3>
-        </article>
-
-        <article>
-          <h3>Post Title</h3>
-        </article>
-
-        <article>
-          <h3>Post Title</h3>
-        </article>
-
-        <article>
-          <h3>Post Title</h3>
-        </article>
+          
             </div>
       
        
