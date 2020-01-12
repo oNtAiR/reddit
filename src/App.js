@@ -16,12 +16,13 @@ class App extends React.Component {
   }
 
    handleClick(e) {
-    console.log(e.target.className)
+     this.setState({loading: true})
+    
     const url = (`https://www.reddit.com/r${e.target.className}/top/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
-      this.setState({tops: data})
+      this.setState({tops: data, loading: false})
     })
     
     
@@ -35,7 +36,7 @@ class App extends React.Component {
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
-      this.setState({tops: data})
+      this.setState({tops: data, loading: false})
     })
   }
 
@@ -50,15 +51,15 @@ class App extends React.Component {
       <div className={SS.subName}>
         <button onClick={this.handleClick} className='/webdev'>/webdev</button>
         <button onClick={this.handleClick} className={'/web_design'}>/web_design</button>
-        <button>Name</button>
-        <button>Name</button>
+        <button onClick={this.handleClick} className={'/programming'}>/programming</button>
+        <button onClick={this.handleClick} className={'/javascript'}>/javascript</button>
         <button>Name</button>
       </div>
 
-     {this.state.tops.data ? < Data tops={this.state.tops} /> : <div className={SS.load}><img src={logo} alt="loading"></img></div>}
+     {this.state.loading ? <div className={SS.load}><img src={logo} alt="loading"></img></div> : < Data tops={this.state.tops} /> }
     </div>
 
-    
+
   );
 }
 }

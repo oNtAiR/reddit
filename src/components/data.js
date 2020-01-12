@@ -16,7 +16,7 @@ class Data extends React.Component {
 
       <div className={SS.data}>
           {this.props.tops.data.children.map((n, k) => {
-              console.log(n)
+             
               return (
                   <article key={k}>
                       <div className={SS.score}>{n.data.score}</div>
