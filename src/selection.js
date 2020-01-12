@@ -19,9 +19,7 @@ render(props) {
         <button onClick={(e) => this.props.changeSelect(e)} className='rising'>Rising</button>
         <button onClick={(e) => this.props.changeSelect(e)} className='best'>Best</button>
         <button onClick={(e) => this.props.changeSelect(e)} className='comments'>Comments</button>
-        <button>Top</button>
-        <button>Top</button>
-        <button>Top</button>
+        
       </div>
     )
     

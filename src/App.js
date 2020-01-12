@@ -25,7 +25,7 @@ class App extends React.Component {
     this.setState({ selection: name})
     
     this.setState({loading: true})
-    
+    console.log(this.state.tops.data)
     const url = (`https://www.reddit.com/r${this.state.subName}/${name}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
@@ -64,7 +64,8 @@ class App extends React.Component {
   
   return (
     <div className={SS.main}>
-      <h1>Top Posts From Reddit Development SubReddis</h1>
+      <h1>Reddit Reader</h1>
+      <h3>Pick Your /subreddit:</h3>
 
       <div className={SS.subName}>
         <button onClick={this.handleClick} className='/webdev'>/webdev</button>
@@ -73,6 +74,7 @@ class App extends React.Component {
         <button onClick={this.handleClick} className={'/javascript'}>/javascript</button>
         <button>Name</button>
       </div>
+      <h3>Sort By:</h3>
      < Selection changeSelect={this.changeSelect}/>
 
      {this.state.loading ? <div className={SS.load}><img src={logo} alt="loading"></img></div> : < Data tops={this.state.tops} sort={this.state.selection} /> }

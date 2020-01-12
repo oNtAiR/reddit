@@ -41,16 +41,26 @@
             text-align: center;
             //display: inline-block;
             padding: .5rem;
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
         .score {
             display: inline-block;
-            background-color: violet;
-            font-size: 1.2rem;
-            margin-top: .5rem;
-            margin-left: .5rem;
-            padding: .5rem;
-            border-radius: 20px;
+            margin: 4px 5px 5px 4px;
+            //border-left: 1px solid tomato;;
+            p {
+                display: inline-block;
+                margin: 0;
+                padding-left: 3px;
+            }
+
+            img {
+               
+                display: inline-block;
+                width: 20px;
+                margin-left: 5px;
+            }
         }
 
         .text {
@@ -58,8 +68,28 @@
             margin-bottom: 4rem;
         }
 
+        .test {
+            display: inline-block;
+            margin: 4px 5px 5px 4px;
+            border-left: 1px solid tomato;
+            
+
+            p {
+                display: inline-block;
+                margin: 0;
+                padding-left: 3px;
+            }
+
+            img {
+               
+                display: inline-block;
+                width: 20px;
+                margin-left: 5px;
+            }
+        }
+
         .read {
-            background-color: #34bb62;
+            background-color: tomato;
             display: inline-block;
             border-radius: 20px;
             margin-left: 2rem;
