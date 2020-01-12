@@ -1,6 +1,6 @@
 import React from 'react'
 import SS from './subred.module.scss'
-
+import close from '../IMG/close.svg'
 
 class Subred extends React.Component {
 
@@ -38,7 +38,10 @@ class Subred extends React.Component {
         return (
             <div className={SS.subName}>
                 {this.props.list.map((n, k) => {
-                   return <button onClick={(e) => this.props.handleClick(e)} key={k} className={n}>{n}</button>
+                   return <div className={SS.list} key={k} id={k}>
+                       <button onClick={(e) => this.props.handleClick(e)} className={n}>{n}</button>
+                       <img src={close} alt='Remove Item' onClick={(e) => this.props.removeSub(e)}></img>
+                       </div>
                 })}
             {/* <button onClick={(e) => this.props.handleClick(e)} className='/webdev'>/webdev</button>
             <button onClick={(e) => this.props.handleClick(e)} className={'/web_design'}>/web_design</button>

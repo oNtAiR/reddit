@@ -22,6 +22,7 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.changeSelect = this.changeSelect.bind(this);
     this.addButton = this.addButton.bind(this);
+    this.removeSub = this.removeSub.bind(this)
   }
 
   updateV(e) {
@@ -30,6 +31,16 @@ class App extends React.Component {
     this.setState({newSub: rr})
 }
 
+removeSub(e) {
+  let index = e.target.parentNode.id;
+  console.log(e.currentTarget.parentNode.id);
+  console.log(this.state.list)
+  this.setState(prevState => ({
+    
+    list: prevState.list.filter((sub, key) => key !== index)
+  }))
+
+}
 
 addButton() {
     const newSub = this.state.newSub.slice()
@@ -44,7 +55,7 @@ addButton() {
     const  vv  = list;
     const mm = JSON.stringify(vv)
     localStorage.setItem('list', mm)
-    console.log(mm)
+    console.log(this.state.list)
     
     
 
@@ -110,7 +121,7 @@ addButton() {
       </div>
       
 
-      < Subred handleClick={this.handleClick} list={this.state.list}/>
+      < Subred handleClick={this.handleClick} list={this.state.list} removeSub={this.removeSub}/>
       <h3>Sort By:</h3>
      < Selection changeSelect={this.changeSelect}/>
 

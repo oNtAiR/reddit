@@ -51,3 +51,27 @@
 
 }
 
+.list {
+    display: flex;
+
+
+    img {
+        height: 30px;
+        background-color: steelblue;
+        padding: 3px;
+        margin-top: 15px;
+        border-top-right-radius: 9px;
+        border-bottom-right-radius: 9px;
+
+        @include phone {
+            margin-top: 4px;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+    }
+
+}
+
