@@ -32,13 +32,17 @@ class App extends React.Component {
 }
 
 removeSub(e) {
-  let index = e.target.parentNode.id;
-  console.log(e.currentTarget.parentNode.id);
-  console.log(this.state.list)
-  this.setState(prevState => ({
-    
-    list: prevState.list.filter((sub, key) => key !== index)
-  }))
+  const newName = e.target.parentNode.id;
+  console.log(newName)
+  const  myItem  = this.state.list
+ console.log(myItem)
+  const newItem = [...myItem]
+  console.log(newItem)
+  // const newItem = [...myItem];
+  // console.log(newItem)
+   this.setState(prev => ({
+     list: prev.list.filter(item => item !== newName)
+   }))
 
 }
 

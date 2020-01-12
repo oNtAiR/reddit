@@ -38,8 +38,8 @@ class Subred extends React.Component {
         return (
             <div className={SS.subName}>
                 {this.props.list.map((n, k) => {
-                   return <div className={SS.list} key={k} id={k}>
-                       <button onClick={(e) => this.props.handleClick(e)} className={n}>{n}</button>
+                   return <div className={SS.list} key={k} id={n} >
+                       <button onClick={(e) => this.props.handleClick(e)}  >{n}</button>
                        <img src={close} alt='Remove Item' onClick={(e) => this.props.removeSub(e)}></img>
                        </div>
                 })}
