@@ -91,9 +91,11 @@ addButton() {
     <div className={SS.main}>
       <h1>Reddit Reader</h1>
       <div className={SS.pick}>
-      <h3>Pick a subReddit below, or add your own:</h3>
+      <h3>Pick A SubReddit <br></br> or add your own:</h3>
+      <div className={SS.addyourown}>
       <input type="text" placeholder="Add your own" value={this.state.newSub} onChange={e => this.updateV(e)}></input>
             <button className={SS.addbutton} onClick={() => this.addButton()}>Add</button>
+            </div>
       </div>
       
 
