@@ -17,50 +17,50 @@
 
 }
 
-.subName {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 2rem;
+// .subName {
+//     max-width: 900px;
+//     margin: 0 auto;
+//     display: flex;
+//     flex: 1;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+//     margin-bottom: 2rem;
 
-    * > {
-        flex: 1;
-    }
+//     * > {
+//         flex: 1;
+//     }
 
-    button {
-        background: tomato;
-        border: none;
-        border-radius: 20px;
-        padding: 1rem;
-        font-weight: bold;
-        font-size: 1.7rem;
-        box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
-        transition: all ease-in-out .3s;
+//     button {
+//         background: tomato;
+//         border: none;
+//         border-radius: 20px;
+//         padding: 1rem;
+//         font-weight: bold;
+//         font-size: 1.7rem;
+//         box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
+//         transition: all ease-in-out .3s;
 
-        &:hover {
-            cursor: pointer;
-            box-shadow: 0 30px 80px 3px rgba(0,0,0,0.3), 0 20px 50px -10px rgba(0,0,0,0.3);
+//         &:hover {
+//             cursor: pointer;
+//             box-shadow: 0 30px 80px 3px rgba(0,0,0,0.3), 0 20px 50px -10px rgba(0,0,0,0.3);
 
-        }
-    } 
+//         }
+//     } 
 
-}
+// }
 
 
-.load {
-    max-width: 900px;
-    min-width: 300px;
-    margin: 0 auto;
+// .load {
+//     max-width: 900px;
+//     min-width: 300px;
+//     margin: 0 auto;
 
-    img {
-        object-fit: cover;
-        width: 100%;
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
+//     img {
+//         object-fit: cover;
+//         width: 100%;
+//         animation: App-logo-spin infinite 20s linear;
+//     }
+// }
 
 @keyframes App-logo-spin {
     from {

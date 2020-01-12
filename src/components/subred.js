@@ -1,47 +1,50 @@
 import React from 'react'
 import SS from './subred.module.scss'
-import { Match } from '@reach/router';
+
 
 class Subred extends React.Component {
 
     constructor() {
         super()
 
-        this.state ={
-            newSub:'',
-            list:['/webdev', '/web_design', '/programming', '/javascript']
-        }
+        // this.state ={
+        //     newSub:'',
+        //     list:['/webdev', '/web_design', '/programming', '/javascript']
+        // }
 
-        this.addButton = this.addButton.bind(this);
+        // this.addButton = this.addButton.bind(this);
     }
 
+    // updateV(e) {
+    //     console.log(e.target.value)
+    //     const rr = e.target.value
+    //     this.setState({newSub: rr})
+    // }
 
-    addButton() {
-        const newSub ={
-            id: 1 + Match.random,
-            value: this.state.newSub.slice()
-        }
 
-        const list = [...this.state.list];
+    // addButton() {
+    //     const newSub = this.state.newSub.slice()
+        
 
-        list.push(newSub);
+    //     const list = [...this.state.list];
 
-        this.setState({ list: list, newSub: ""})
+    //     list.push(newSub);
 
-    }
+    //     this.setState({ list: list, newSub: ""})
 
-    render() {
+    // }
+
+    render(props) {
         return (
             <div className={SS.subName}>
-                {this.state.list.map(n => {
-                   return <button onClick={(e) => this.props.handleClick(e)} className={n}>{n}</button>
+                {this.props.list.map((n, k) => {
+                   return <button onClick={(e) => this.props.handleClick(e)} key={k} className={n}>{n}</button>
                 })}
             {/* <button onClick={(e) => this.props.handleClick(e)} className='/webdev'>/webdev</button>
             <button onClick={(e) => this.props.handleClick(e)} className={'/web_design'}>/web_design</button>
             <button onClick={(e) => this.props.handleClick(e)} className={'/programming'}>/programming</button>
             <button onClick={(e) => this.props.handleClick(e)} className={'/javascript'}>/javascript</button> */}
-            <input type="text" placeholder="Add your own" value={this.state.newSub} onChange={e => this.updateV()}></input>
-            <button onClick={() => this.addButton()}></button>
+            
           </div>
         )
     }

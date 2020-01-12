@@ -15,11 +15,33 @@ class App extends React.Component {
       loading: true,
       tops: false,
       selection: 'top',
-      subName: '/webdev'
+      subName: '/webdev',
+      newSub:'',
+      list:['/webdev', '/web_design', '/programming', '/javascript']
     }
     this.handleClick = this.handleClick.bind(this);
     this.changeSelect = this.changeSelect.bind(this);
+    this.addButton = this.addButton.bind(this);
   }
+
+  updateV(e) {
+    console.log(e.target.value)
+    const rr = e.target.value
+    this.setState({newSub: rr})
+}
+
+
+addButton() {
+    const newSub = this.state.newSub.slice()
+    
+
+    const list = [...this.state.list];
+
+    list.push(newSub);
+
+    this.setState({ list: list, newSub: ""})
+
+}
 
 
   changeSelect(e) {
@@ -68,9 +90,14 @@ class App extends React.Component {
   return (
     <div className={SS.main}>
       <h1>Reddit Reader</h1>
-      <h3>Pick Your /subreddit:</h3>
+      <div className={SS.pick}>
+      <h3>Pick a subReddit below, or add your own:</h3>
+      <input type="text" placeholder="Add your own" value={this.state.newSub} onChange={e => this.updateV(e)}></input>
+            <button className={SS.addbutton} onClick={() => this.addButton()}>Add</button>
+      </div>
+      
 
-      < Subred handleClick={this.handleClick}/>
+      < Subred handleClick={this.handleClick} list={this.state.list}/>
       <h3>Sort By:</h3>
      < Selection changeSelect={this.changeSelect}/>
 
