@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+
+@mixin phone {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin tabletP {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tabletM {
+    @media (min-width: 650px) {
+        @content;
+    }
+}
+
+@mixin tabletL {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktopL {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
