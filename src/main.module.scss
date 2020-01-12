@@ -39,3 +39,26 @@
 }
 
 
+.load {
+    max-width: 900px;
+    min-width: 300px;
+    margin: 0 auto;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+

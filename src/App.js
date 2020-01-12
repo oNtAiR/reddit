@@ -31,7 +31,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-      
+    const url = (`https://www.reddit.com/r/webdev/top/.json?count=20`);
+    fetch(url)
+    .then(resp => resp.json())
+    .then((data) => {
+      this.setState({tops: data})
+    })
   }
 
 
@@ -50,7 +55,7 @@ class App extends React.Component {
         <button>Name</button>
       </div>
 
-     {this.state.tops.data ? < Data tops={this.state.tops} /> : <div>Loading</div>}
+     {this.state.tops.data ? < Data tops={this.state.tops} /> : <div className={SS.load}><img src={logo} alt="loading"></img></div>}
     </div>
 
     
