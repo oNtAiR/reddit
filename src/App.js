@@ -55,7 +55,15 @@ componentDidUpdate() {
 addButton() {
 
     fetch(`https://www.reddit.com/r/${this.state.newSub}/top/.json?count=1`)
-    .then(response => {
+    .then((response) => {
+      if(response.ok) {
+        return response.json()
+      } else {
+        throw new Error('fuckkkk')
+      }
+      
+    })
+    .then(data => {
       const newSub = this.state.newSub.slice()
     
 
@@ -70,13 +78,14 @@ addButton() {
       localStorage.setItem('list', mm)
       console.log(this.state.list)
     })
-    .catch(err => console.log('error'))
+
+    .catch(error => console.log(error))
   
    
     
     
 
-}
+  }
 
 
 
