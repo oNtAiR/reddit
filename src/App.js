@@ -17,18 +17,20 @@ class App extends React.Component {
       selection: 'top',
       subName: 'webdev',
       newSub:'',
-      list:['webdev', 'web_design', 'programming', 'javascript']
+      list:['webdev', 'web_design', 'programming', 'javascript'],
+      isactive: 'no'
     }
     this.handleClick = this.handleClick.bind(this);
     this.changeSelect = this.changeSelect.bind(this);
     this.addButton = this.addButton.bind(this);
-    this.removeSub = this.removeSub.bind(this)
+    this.removeSub = this.removeSub.bind(this);
+    this.updateV = this.updateV.bind(this);
   }
 
   
 
   updateV(e) {
-    console.log(e.target.value)
+   
     const rr = e.target.value
     this.setState({newSub: rr})
 }
@@ -76,7 +78,7 @@ addButton() {
       const  vv  = list;
       const mm = JSON.stringify(vv)
       localStorage.setItem('list', mm)
-      console.log(this.state.list)
+      
     })
 
     .catch(error => console.log(error))
@@ -108,14 +110,17 @@ addButton() {
    handleClick(e) {
      this.setState({loading: true})
     const subName = e.target.parentNode.id
-    console.log(this.state.tops)
+    
+    
     const url = (`https://www.reddit.com/r/${subName}/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
-      this.setState({tops: data, loading: false, subName: subName})
+      this.setState({tops: data, loading: false, subName: subName, isactive: subName })
     })
-    
+
+  
+   
    
     
   }
@@ -123,22 +128,23 @@ addButton() {
   componentDidMount() {
     const defaultList = ['webdev', 'web_design', 'programming', 'javascript'];
     let vv = JSON.parse(localStorage.getItem('list'));
-    console.log(this.state.tops)
-    const url = (`https://www.reddit.com/r/webdev/${this.state.selection}/.json?count=20`);
+    if(this.state.tops === false) {
+      const url = (`https://www.reddit.com/r/webdev/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
       this.setState({tops: data, loading: false, list: vv === undefined || vv === null || vv.length === 0 ? defaultList : vv})
     })
+    }
   }
 
 
   render() {
-
+    
     
   return (
     <div className={SS.main}>
-      <h1>Reddit Reader</h1>
+      <h1>React Reddit Reader</h1>
       <div className={SS.pick}>
       <h3>Pick a SubReddit or add your own:</h3>
       <div className={SS.addyourown}>
@@ -148,7 +154,7 @@ addButton() {
       </div>
       
 
-      < Subred handleClick={this.handleClick} list={this.state.list} removeSub={this.removeSub}/>
+      < Subred handleClick={this.handleClick} list={this.state.list} removeSub={this.removeSub} active={this.state.isactive}/>
       <h3>Sort By:</h3>
      < Selection changeSelect={this.changeSelect}/>
 
