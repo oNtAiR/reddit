@@ -53,19 +53,26 @@ componentDidUpdate() {
 }
 
 addButton() {
-    const newSub = this.state.newSub.slice()
+
+    fetch(`https://www.reddit.com/r/${this.state.newSub}/top/.json?count=1`)
+    .then(response => {
+      const newSub = this.state.newSub.slice()
     
 
-    const list = [...this.state.list];
-
-    list.push(newSub);
-
-    this.setState({ list: list, newSub: ""})
-    
-    const  vv  = list;
-    const mm = JSON.stringify(vv)
-    localStorage.setItem('list', mm)
-    console.log(this.state.list)
+      const list = [...this.state.list];
+  
+      list.push(newSub);
+  
+      this.setState({ list: list, newSub: ""})
+      
+      const  vv  = list;
+      const mm = JSON.stringify(vv)
+      localStorage.setItem('list', mm)
+      console.log(this.state.list)
+    })
+    .catch(err => console.log('error'))
+  
+   
     
     
 
@@ -92,7 +99,7 @@ addButton() {
    handleClick(e) {
      this.setState({loading: true})
     const subName = e.target.parentNode.id
-    console.log(subName)
+    console.log(this.state.tops)
     const url = (`https://www.reddit.com/r${subName}/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
@@ -100,14 +107,14 @@ addButton() {
       this.setState({tops: data, loading: false, subName: subName})
     })
     
-    console.log('hi')
+   
     
   }
 
   componentDidMount() {
     const defaultList = ['/webdev', '/web_design', '/programming', '/javascript'];
     let vv = JSON.parse(localStorage.getItem('list'));
-    console.log(vv.lengthsa)
+    console.log(this.state.tops)
     const url = (`https://www.reddit.com/r/webdev/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())

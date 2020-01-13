@@ -8,7 +8,7 @@ class Selection extends React.Component {
 
 
 
-render(props) {
+render() {
     return (
         <div className={SS.select}>
         
@@ -18,7 +18,7 @@ render(props) {
         <button onClick={(e) => this.props.changeSelect(e)} className='controversial'>Controversial</button>
         <button onClick={(e) => this.props.changeSelect(e)} className='rising'>Rising</button>
         <button onClick={(e) => this.props.changeSelect(e)} className='best'>Best</button>
-        <button onClick={(e) => this.props.changeSelect(e)} className='comments'>Comments</button>
+        
         
       </div>
     )
