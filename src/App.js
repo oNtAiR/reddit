@@ -25,6 +25,8 @@ class App extends React.Component {
     this.removeSub = this.removeSub.bind(this)
   }
 
+  
+
   updateV(e) {
     console.log(e.target.value)
     const rr = e.target.value
@@ -33,17 +35,21 @@ class App extends React.Component {
 
 removeSub(e) {
   const newName = e.target.parentNode.id;
-  console.log(newName)
-  const  myItem  = this.state.list
- console.log(myItem)
-  const newItem = [...myItem]
-  console.log(newItem)
+  
+ 
+ 
   // const newItem = [...myItem];
   // console.log(newItem)
    this.setState(prev => ({
      list: prev.list.filter(item => item !== newName)
    }))
+   
+}
 
+componentDidUpdate() {
+  const whatt = JSON.stringify(this.state.list)
+   console.log(whatt)
+   localStorage.setItem('list', whatt)
 }
 
 addButton() {
@@ -85,34 +91,35 @@ addButton() {
 
    handleClick(e) {
      this.setState({loading: true})
-    const subName = e.target.className
- 
-    const url = (`https://www.reddit.com/r${e.target.className}/${this.state.selection}/.json?count=20`);
+    const subName = e.target.parentNode.id
+    console.log(subName)
+    const url = (`https://www.reddit.com/r${subName}/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
       this.setState({tops: data, loading: false, subName: subName})
     })
     
-    
+    console.log('hi')
     
   }
 
   componentDidMount() {
+    const defaultList = ['/webdev', '/web_design', '/programming', '/javascript'];
     let vv = JSON.parse(localStorage.getItem('list'));
-    console.log(vv)
+    console.log(vv.lengthsa)
     const url = (`https://www.reddit.com/r/webdev/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
-      this.setState({tops: data, loading: false, list: vv ? vv : this.state.list})
+      this.setState({tops: data, loading: false, list: vv === undefined || vv.length === 0 ? defaultList : vv})
     })
   }
 
 
   render() {
 
-  
+    
   return (
     <div className={SS.main}>
       <h1>Reddit Reader</h1>
