@@ -15,9 +15,9 @@ class App extends React.Component {
       loading: true,
       tops: false,
       selection: 'top',
-      subName: '/webdev',
+      subName: 'webdev',
       newSub:'',
-      list:['/webdev', '/web_design', '/programming', '/javascript']
+      list:['webdev', 'web_design', 'programming', 'javascript']
     }
     this.handleClick = this.handleClick.bind(this);
     this.changeSelect = this.changeSelect.bind(this);
@@ -87,7 +87,7 @@ addButton() {
     
     this.setState({loading: true})
 
-    const url = (`https://www.reddit.com/r${this.state.subName}/${name}/.json?count=20`);
+    const url = (`https://www.reddit.com/r/${this.state.subName}/${name}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
@@ -100,7 +100,7 @@ addButton() {
      this.setState({loading: true})
     const subName = e.target.parentNode.id
     console.log(this.state.tops)
-    const url = (`https://www.reddit.com/r${subName}/${this.state.selection}/.json?count=20`);
+    const url = (`https://www.reddit.com/r/${subName}/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
@@ -112,14 +112,14 @@ addButton() {
   }
 
   componentDidMount() {
-    const defaultList = ['/webdev', '/web_design', '/programming', '/javascript'];
+    const defaultList = ['webdev', 'web_design', 'programming', 'javascript'];
     let vv = JSON.parse(localStorage.getItem('list'));
     console.log(this.state.tops)
     const url = (`https://www.reddit.com/r/webdev/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
-      this.setState({tops: data, loading: false, list: vv === undefined || vv.length === 0 ? defaultList : vv})
+      this.setState({tops: data, loading: false, list: vv === undefined || vv === null || vv.length === 0 ? defaultList : vv})
     })
   }
 
