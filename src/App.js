@@ -18,7 +18,8 @@ class App extends React.Component {
       subName: 'webdev',
       newSub:'',
       list:['webdev', 'web_design', 'programming', 'javascript'],
-      isactive: 'no'
+      isactive: 'no',
+      realSub: false
     }
     this.handleClick = this.handleClick.bind(this);
     this.changeSelect = this.changeSelect.bind(this);
@@ -35,7 +36,7 @@ class App extends React.Component {
     this.setState({newSub: rr})
 }
 
-removeSub(e) {
+ removeSub(e) {
   const newName = e.target.parentNode.id;
   
  
@@ -46,47 +47,41 @@ removeSub(e) {
      list: prev.list.filter(item => item !== newName)
    }))
    
-}
+ }
 
-componentDidUpdate() {
+ componentDidUpdate() {
   const whatt = JSON.stringify(this.state.list)
    console.log(whatt)
    localStorage.setItem('list', whatt)
-}
+ }
 
-addButton() {
+ addButton() {
 
-    fetch(`https://www.reddit.com/r/${this.state.newSub}/top/.json?count=1`)
+    fetch(`https://www.reddit.com/r/${this.state.newSub}/top/.json?count=20`)
     .then((response) => {
       if(response.ok) {
         return response.json()
+        .then(data => {
+          const newSub = this.state.newSub.slice()
+          const list = [...this.state.list];
+          list.push(newSub);
+          this.setState({ list: list, newSub: ""})
+          const  vv  = list;
+          const mm = JSON.stringify(vv)
+          localStorage.setItem('list', mm)
+          
+        })
       } else {
-        throw new Error('fuckkkk')
+        throw new Error('fuckkkk');
+        
       }
       
     })
-    .then(data => {
-      const newSub = this.state.newSub.slice()
-    
+      .catch(error => {
+        this.setState({ realSub: true})
+        
 
-      const list = [...this.state.list];
-  
-      list.push(newSub);
-  
-      this.setState({ list: list, newSub: ""})
-      
-      const  vv  = list;
-      const mm = JSON.stringify(vv)
-      localStorage.setItem('list', mm)
-      
-    })
-
-    .catch(error => console.log(error))
-  
-   
-    
-    
-
+      })
   }
 
 
@@ -151,6 +146,9 @@ addButton() {
       <input type="text" placeholder="Add your own" value={this.state.newSub} onChange={e => this.updateV(e)}></input>
             <button className={SS.addbutton} onClick={() => this.addButton()}>Add</button>
             </div>
+      </div>
+      <div className={SS.error}>
+        {this.state.realSub ? <p>"{this.state.newSub}" does not exit</p> : ''}
       </div>
       
 
