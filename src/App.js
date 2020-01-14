@@ -17,8 +17,8 @@ class App extends React.Component {
       selection: 'top',
       subName: 'webdev',
       newSub:'',
-      list:['webdev', 'web_design', 'programming', 'javascript'],
-      isactive: 'no',
+      list:[],
+      isactive: '',
       realSub: false
     }
     this.handleClick = this.handleClick.bind(this);
@@ -52,7 +52,10 @@ class App extends React.Component {
  componentDidUpdate() {
   const whatt = JSON.stringify(this.state.list)
    console.log(whatt)
-   localStorage.setItem('list', whatt)
+   const currentSub = JSON.stringify(this.state.isactive)
+   localStorage.setItem('list', whatt);
+   localStorage.setItem( 'currentSub', currentSub);
+
  }
 
  addButton() {
@@ -127,12 +130,14 @@ class App extends React.Component {
   componentDidMount() {
     const defaultList = ['webdev', 'web_design', 'programming', 'javascript'];
     let vv = JSON.parse(localStorage.getItem('list'));
+    console.log(vv.length)
+    let activeOr = JSON.parse(localStorage.getItem('currentSub'));
     if(this.state.tops === false) {
-      const url = (`https://www.reddit.com/r/webdev/${this.state.selection}/.json?count=20`);
+      const url = (`https://www.reddit.com/r/${activeOr}/${this.state.selection}/.json?count=20`);
     fetch(url)
     .then(resp => resp.json())
     .then((data) => {
-      this.setState({tops: data, loading: false, list: vv === undefined || vv === null || vv.length === 0 ? defaultList : vv})
+      this.setState({tops: data, loading: false, list: vv.length === 0 ? defaultList : vv, isactive: activeOr})
     })
     }
   }
@@ -156,7 +161,7 @@ class App extends React.Component {
       </div>
       
 
-      < Subred handleClick={this.handleClick} list={this.state.list} removeSub={this.removeSub} active={this.state.isactive}/>
+      < Subred handleClick={this.handleClick} list={this.state.list} isactive={this.state.isactive} removeSub={this.removeSub} active={this.state.isactive}/>
       <h3>Sort By:</h3>
      < Selection changeSelect={this.changeSelect}/>
 

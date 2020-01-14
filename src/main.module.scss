@@ -99,16 +99,19 @@
     border: none;
     font-size: 1.5rem;
     border-radius: 20px;
-    border: 5px solid rgb(81, 187, 173);
+    border: 5px solid tomato;
+    margin-top: .5rem;
+    padding-left: .5rem;
     @include phone {
         padding-left: .5rem;
         font-size: 1rem;
+        margin-top: 0;
     }
 
 }
 
 .addbutton {
-    background: rgb(81, 187, 173);
+    background: tomato;
     font-size: 1.4rem;
     border: none;
     border-radius: 10px;
@@ -116,11 +119,19 @@
     padding: 1rem;
     margin-left: .5rem;
     margin-top: .5rem;
+    box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
+    transition: all ease-in-out .3s;
 
     @include phone {
         padding: .5rem;
         font-size: 1rem;
         margin-top: 0;
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 30px 80px 3px rgba(0,0,0,0.3), 0 20px 50px -10px rgba(0,0,0,0.3);
+
     }
     
     
@@ -139,6 +150,7 @@
     flex-wrap: wrap;
     flex: 1;
     margin-bottom: 0;
+   
 }
 
 .error {

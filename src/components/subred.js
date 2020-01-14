@@ -50,7 +50,7 @@ class Subred extends React.Component {
             
           </div>
         )
-    }
+    } 
 }
 
 export default Subred;

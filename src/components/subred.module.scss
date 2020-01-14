@@ -17,17 +17,17 @@
         flex: 1;
     }
 
-    // .active {
-    //     background-color: rgb(92, 92, 172);
-    //     border: none;
-    //     border-radius: 20px;
-    //     padding: 1rem;
-    //     font-weight: bold;
-    //     font-size: 1.7rem;
-    //     box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
-    //     transition: all ease-in-out .3s;
-    //     margin-bottom: .5rem;
-    // }
+    .active {
+        background-color: rgb(92, 92, 172); 
+        border: none;
+        border-radius: 20px;
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 1.7rem;
+        box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
+        transition: all ease-in-out .3s;
+        margin-bottom: .5rem;
+    }
 
     button {
         background: tomato;
