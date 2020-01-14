@@ -16,8 +16,8 @@ class App extends React.Component {
       tops: false,
       selection: 'top',
       subName: 'webdev',
-      newSub:'',
-      list:[],
+      newSub:'webdev',
+      list: ['webdev', 'web_design', 'programming', 'javascript'],
       isactive: 'webdev',
       realSub: false
     }
@@ -116,7 +116,7 @@ class App extends React.Component {
    
     const select = JSON.stringify(name)
     localStorage.setItem('selection', select);
-    console.log(select, 'working?')
+    console.log(select, 'changeS function sort ID')
   }
 
 
@@ -157,11 +157,26 @@ class App extends React.Component {
     // })
 
     
-
+   let mydata = localStorage.getItem('tops')
+    if(mydata) {
+      this.setState({loading: false})
+      mydata = JSON.parse(mydata);
+      let mySelection = localStorage.getItem('selection')
+      mySelection = JSON.parse(mySelection)
+      this.setState({tops: mydata, selection: mySelection})
+    } else {
+      this.setState({loading: true})
+      const url = (`https://www.reddit.com/r/webdev/top/.json?count=20`);
+      const defaultList = ['webdev', 'web_design', 'programming', 'javascript'];
+        fetch(url)
+        .then(resp => resp.json())
+        .then((data) => {
+           this.setState({tops: data, loading: false, list: defaultList})
+           let mm = JSON.stringify(data)
+           localStorage.setItem('tops', mm)
+    })
     
-    
-    
-
+  }
     
 
     
@@ -171,37 +186,47 @@ class App extends React.Component {
   render() {
 
 
-    if(this.state.tops === false) {
-      console.log(this.state.tops)
-      const defaultList = ['webdev', 'web_design', 'programming', 'javascript'];
-    let list = JSON.parse(localStorage.getItem('list')) ? JSON.parse(localStorage.getItem('list')) : this.state.list;
-    console.log(list)
-    let data3 = JSON.parse(localStorage.getItem('tops')) ? JSON.parse(localStorage.getItem('tops')) : this.state.tops;
-    let selection2= JSON.parse(localStorage.getItem('selection')) ? JSON.parse(localStorage.getItem('tops')) : this.state.selection;
-    let selection = this.state.selection;
-    console.log(selection)
-    let active = this.state.isactive
+    // if(this.state.tops !== false) {
+    //   console.log('apparently tops is false')
+    //   const defaultList = ['webdev', 'web_design', 'programming', 'javascript'];
+    // // let list = JSON.parse(localStorage.getItem('list')) ? JSON.parse(localStorage.getItem('list')) : defaultList;
+ 
+    // // let data3 = JSON.parse(localStorage.getItem('tops')) ? JSON.parse(localStorage.getItem('tops')) : this.state.tops;
+    // // let selection2= JSON.parse(localStorage.getItem('selection')) ? JSON.parse(localStorage.getItem('tops')) : this.state.selection;
+    // let selection = this.state.selection;
+    // let mylist = this.state.list
+    // let active = this.state.isactive
     
 
-      const url = (`https://www.reddit.com/r/webdev/top/.json?count=20`);
-      fetch(url)
-      .then(resp => resp.json())
-      .then((data) => {
-        this.setState({tops: data, loading: false, list: list.length === 0 ? defaultList : list, isactive: active, selection: selection2 })
-        let mm = JSON.stringify(data)
-        localStorage.setItem('tops', mm)
-      })
-    } 
+    //   const url = (`https://www.reddit.com/r/webdev/top/.json?count=20`);
+    //   fetch(url)
+    //   .then(resp => resp.json())
+    //   .then((data) => {
+    //     this.setState({tops: data, loading: false, list: mylist.length === 0 ? defaultList : mylist, isactive: active, selection: selection })
+    //     let mm = JSON.stringify(data)
+    //     localStorage.setItem('tops', mm)
+    //   })
+    // } else {
+    //   let mySel = JSON.parse(localStorage.getItem('selection'))
+    // let myData = JSON.parse(localStorage.getItem('tops'))
+    // console.log(mySel, 'render')
+    // const test = this.state.tops
+    // console.log(test)
+    // }
+    
 
 
     
-    let mySel = JSON.parse(localStorage.getItem('selection'))
-    let myData = JSON.parse(localStorage.getItem('tops'))
-    console.log(mySel, 'render')
-    const test = this.state.tops
-    console.log(test)
+    
     
   return (
+
+
+
+
+
+
+    
     <div className={SS.main}>
       <h1>React Reddit Reader</h1>
       <div className={SS.pick}>
@@ -218,9 +243,9 @@ class App extends React.Component {
 
       < Subred handleClick={this.handleClick} list={this.state.list}  removeSub={this.removeSub} active={this.state.subName}/>
       <h3>Sort By:</h3>
-     < Selection changeSelect={this.changeSelect} selection={mySel}/>
+     < Selection changeSelect={this.changeSelect} selection={this.state.selection}/>
 
-     {this.state.loading ? <div className={SS.load}><img src={logo} alt="loading"></img></div> : < Data tops={this.state.tops} sort={this.state.selection} /> }
+     {this.state.loading ? <div className={SS.load}><img src={logo} alt="loading"></img></div> : < Data tops={this.state.tops}  /> }
     </div>
 
 
