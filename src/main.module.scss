@@ -138,5 +138,38 @@
     justify-content: center;
     flex-wrap: wrap;
     flex: 1;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
+
+.error {
+    text-align: center;
+    color: red;
+    font-size: 1.3rem;
+    height: 2rem;
+   
+    
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+  
+
+    .grow {
+       opacity: 0;
+        animation: fade 4s;
+       
+       margin: 0;
+    margin-right: 75px;
+    }
+}
+
+@keyframes fade {
+    0% {opacity: 0}
+    10% {opacity: .7}
+    20% {opacity: 1}
+    80% {opacity: 1}
+    90% {opacity: .7}
+    100% {opacity: 0}
+}
+

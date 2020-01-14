@@ -152,7 +152,7 @@ class App extends React.Component {
             </div>
       </div>
       <div className={SS.error}>
-        {this.state.realSub ? <p>"{this.state.newSub}" does not exit</p> : ''}
+        {this.state.realSub ? <p className={SS.grow}>"{this.state.newSub}" does not exit</p> : <p></p>}
       </div>
       
 
