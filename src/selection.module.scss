@@ -35,5 +35,11 @@
         @include phone {
             font-size: 1rem;
         }
+
+        &.active {
+            background-color: violet;
+        }
+        
     }
 }
+
