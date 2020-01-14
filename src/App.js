@@ -16,7 +16,7 @@ class App extends React.Component {
       tops: false,
       selection: 'top',
       subName: 'webdev',
-      newSub:'webdev',
+      newSub:'',
       list: ['webdev', 'web_design', 'programming', 'javascript'],
       isactive: 'webdev',
       realSub: false
@@ -52,9 +52,9 @@ class App extends React.Component {
  componentDidUpdate() {
   const whatt = JSON.stringify(this.state.list)
    
-   const currentSub = JSON.stringify(this.state.isactive)
+  const currentSub = JSON.stringify(this.state.isactive)
    
-   localStorage.setItem( 'currentSub', currentSub);
+   localStorage.setItem( 'subName', currentSub);
    
    localStorage.setItem('list', whatt);
   
@@ -132,8 +132,8 @@ class App extends React.Component {
     .then((data) => {
       this.setState({tops: data, loading: false, subName: subName, isactive: subName })
     })
-
-  localStorage.setItem('currentSub', subName)
+  let tt = JSON.stringify(subName)
+  localStorage.setItem('subName', tt)
   
    
     
@@ -163,7 +163,15 @@ class App extends React.Component {
       mydata = JSON.parse(mydata);
       let mySelection = localStorage.getItem('selection')
       mySelection = JSON.parse(mySelection)
-      this.setState({tops: mydata, selection: mySelection})
+      let current = localStorage.getItem('subName')
+      current = JSON.parse(current);
+      let isactive = localStorage.getItem('subName')
+      isactive = JSON.parse(isactive)
+      let myList = localStorage.getItem('list')
+      myList = JSON.parse(myList)
+      
+
+      this.setState({tops: mydata, selection: mySelection, subName: current, isactive: current, list: myList})
     } else {
       this.setState({loading: true})
       const url = (`https://www.reddit.com/r/webdev/top/.json?count=20`);
@@ -173,7 +181,11 @@ class App extends React.Component {
         .then((data) => {
            this.setState({tops: data, loading: false, list: defaultList})
            let mm = JSON.stringify(data)
-           localStorage.setItem('tops', mm)
+           let tt = JSON.stringify(this.state.subName)
+           let vv = JSON.stringify(this.state.isactive)
+           localStorage.setItem('tops', mm);
+           localStorage.setItem('selection', tt)
+           localStorage.setItem('subName', vv)
     })
     
   }
