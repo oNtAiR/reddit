@@ -37,6 +37,7 @@ class Subred extends React.Component {
     render(props) {
         return (
             <div className={SS.subName}>
+                <h3>Select:</h3>
                 {this.props.list.map((n, k) => {
                    return <div className={SS.list} key={k} id={n} >
                        <button onClick={(e) => this.props.handleClick(e)} className={`${this.props.active === n ? SS.active : 'nope'}`} >{n}</button>

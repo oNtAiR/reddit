@@ -14,9 +14,30 @@
     
     margin-bottom: 2rem;
 
-    * > {
-        flex: 1;
+    // * > {
+    //     flex: 1;
+    // }
+
+    h3 {
+        border: 2px solid tomato;
+         border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        font-size: 1.5rem;
+        margin: 0;
+        margin-bottom: 0rem;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-right: none;
+
+        @include phone {
+            font-size: 1rem;
+            //padding: .3rem .3rem .3rem .5rem;
+            padding: 0 7px 0 7px;
+            margin-bottom: 0;
+        }
     }
+
+  
 
     .active {
         background-color: tomato;
@@ -26,25 +47,26 @@
        
         box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
         transition: all ease-in-out .3s;
-        margin-bottom: .5rem;
+        //margin-bottom: .5rem;
     }
 
     button {
         background: #51bbad;
         border: none;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-      
+        //border-top-left-radius: 20px;
+        //border-bottom-left-radius: 20px;
+        border-left: 1px solid black;
         padding: .5rem 1rem;
         font-weight: bold;
         font-size: 1.5rem;
         box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
         transition: all ease-in-out .3s;
-        margin-bottom: .5rem;
+        margin-bottom: 0;
 
         &:hover {
             cursor: pointer;
-            box-shadow: 0 30px 80px 3px rgba(0,0,0,0.3), 0 20px 50px -10px rgba(0,0,0,0.3);
+            //box-shadow: 0 30px 80px 3px rgba(0,0,0,0.3), 0 20px 50px -10px rgba(0,0,0,0.3);
+            background-color: tomato;
 
         }
 
@@ -69,32 +91,39 @@
 
 }
 
+.subName:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
 .list {
     display: flex;
-    height: 50px;
-    margin-left: .5rem;
-    margin-right: .5rem;
+    height: 40px;
+    //margin-left: .5rem;
+    //margin-right: .5rem;
 
     @include phone {
-        height: 40px;
+        height: 30px;
     }
 
     img {
-        height: 42px;
+        width: 35px;
         background-color: #51bbad;
-        padding: 4px 7px 4px 4px;
-        margin-bottom: .5rem;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        border-left: 1px solid black;
+        padding: 4px 7px 4px 7px;
+        //margin-bottom: .5rem;
+        //border-top-right-radius: 20px;
+        //border-bottom-right-radius: 20px;
+        //border-left: 1px solid black;
+        //border-right: 1px solid black;
 
         @include phone {
-          height: 32px;
+          //height: 32px;
 
         }
 
         &:hover {
             cursor: pointer;
+            background-color: red;
         }
 
     }
