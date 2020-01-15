@@ -13,7 +13,7 @@ class App extends React.Component {
 
     this.state = {
       loading: true,
-      tops: false,
+      
       selection: 'top',
       subName: 'webdev',
       newSub:'',
@@ -158,7 +158,7 @@ class App extends React.Component {
     //   this.setState({tops: data, loading: false, list: vv.length === 0 ? defaultList : vv, isactive: activeOr})
     // })
 
-    
+    const defaultList = ['webdev', 'web_design', 'programming', 'javascript'];
    let mydata = localStorage.getItem('tops')
     if(mydata) {
       this.setState({loading: false})
@@ -172,12 +172,20 @@ class App extends React.Component {
       let myList = localStorage.getItem('list')
       myList = JSON.parse(myList)
       
+      if(myList.length === 0) {
+        
+        myList = defaultList;
+      } else {
+        
+      }
+      
+      
 
       this.setState({tops: mydata, selection: mySelection, subName: current, isactive: current, list: myList})
     } else {
       this.setState({loading: true})
       const url = (`https://www.reddit.com/r/webdev/top/.json?count=20`);
-      const defaultList = ['webdev', 'web_design', 'programming', 'javascript'];
+     
         fetch(url)
         .then(resp => resp.json())
         .then((data) => {

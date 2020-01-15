@@ -13,7 +13,7 @@ render() {
     return (
         <div className={SS.select}>
         
-        <button onClick={(e) => this.props.changeSelect(e)} className={`${this.props.selection == 'top' ? SS.active : 'false'}`} id='top'>Top</button>
+        <button onClick={(e) => this.props.changeSelect(e)} className={`${this.props.selection == 'top' ? SS.active : 'false'}`} id='top'>Topsss</button>
         <button onClick={(e) => this.props.changeSelect(e)} className={`${this.props.selection == 'new' ? SS.active : 'false'}`} id='new'>new</button>
         <button onClick={(e) => this.props.changeSelect(e)} className={`${this.props.selection == 'hot' ? SS.active : 'false'}`} id='hot'>Hot</button>
         <button onClick={(e) => this.props.changeSelect(e)} className={`${this.props.selection == 'controversial' ? SS.active : 'false'}`} id='controversial'>Controversial</button>
