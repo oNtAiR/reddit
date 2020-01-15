@@ -18,12 +18,11 @@
     }
 
     .active {
-        background-color: rgb(92, 92, 172); 
-        border: none;
-        border-radius: 20px;
-        padding: 1rem;
+        background-color: rgb(238, 146, 181);
+       
+       
         font-weight: bold;
-        font-size: 1.7rem;
+       
         box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
         transition: all ease-in-out .3s;
         margin-bottom: .5rem;
@@ -32,10 +31,12 @@
     button {
         background: tomato;
         border: none;
-        border-radius: 20px;
-        padding: 1rem;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+      
+        padding: .5rem 1rem;
         font-weight: bold;
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
         transition: all ease-in-out .3s;
         margin-bottom: .5rem;
@@ -51,7 +52,7 @@
         }
 
         @include phone {
-            font-size: 1.2rem;
+            font-size: 1rem;
             padding: .5rem;
         }
     } 
@@ -69,18 +70,19 @@
 
 .list {
     display: flex;
-
+    height: 50px;
 
     img {
-        height: 30px;
+        height: 42px;
         background-color: steelblue;
         padding: 3px;
-        margin-top: 15px;
-        border-top-right-radius: 9px;
-        border-bottom-right-radius: 9px;
+        margin-bottom: .5rem;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
 
         @include phone {
             margin-top: 4px;
+
         }
 
         &:hover {
