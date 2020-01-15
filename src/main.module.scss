@@ -13,8 +13,13 @@
         text-align: center;
         padding-top: 0;
         font-size: 3rem;
-        margin: 0;
+       
         margin-bottom: 1rem;
+
+        @include phone {
+            font-size: 1.3rem;
+            margin-top: 14px;
+        }
     }
 
     h3 {
@@ -101,7 +106,8 @@
   input {
     border-radius: 20px;
     border: none;
-    font-size: 1.5rem;
+    height: 42px;
+    font-size: 1.2rem;
     border-radius: 20px;
     border: 5px solid tomato;
     margin-top: .5rem;
@@ -110,6 +116,8 @@
         padding-left: .5rem;
         font-size: 1rem;
         margin-top: 0;
+        height: 32px;
+        border: 2px solid tomato;
     }
 
     &:focus {
@@ -120,18 +128,21 @@
 
 .addbutton {
     background: tomato;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    height: 42px;
     border: none;
     border-radius: 10px;
     font-weight: bold;
-    padding: 1rem;
+    //padding: 1rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
     margin-left: .5rem;
     margin-top: .5rem;
     box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
     transition: all ease-in-out .3s;
 
     @include phone {
-        padding: .5rem;
+        height: 32px;
         font-size: 1rem;
         margin-top: 0;
     }
@@ -158,6 +169,7 @@
     flex-wrap: wrap;
     flex: 1;
     margin-bottom: 0;
+    //height: 50px;
    
 }
 

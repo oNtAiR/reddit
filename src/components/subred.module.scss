@@ -10,7 +10,8 @@
     display: flex;
     flex: 1;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    
     margin-bottom: 2rem;
 
     * > {
@@ -18,7 +19,7 @@
     }
 
     .active {
-        background-color: rgb(238, 146, 181);
+        background-color: tomato;
        
        
         font-weight: bold;
@@ -29,7 +30,7 @@
     }
 
     button {
-        background: tomato;
+        background: rgb(241, 111, 88);
         border: none;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
@@ -53,7 +54,7 @@
 
         @include phone {
             font-size: 1rem;
-            padding: .5rem;
+            padding: .3rem .3rem .3rem .5rem;
         }
     } 
 
@@ -71,17 +72,23 @@
 .list {
     display: flex;
     height: 50px;
+    margin-left: .5rem;
+    margin-right: .5rem;
+
+    @include phone {
+        height: 40px;
+    }
 
     img {
         height: 42px;
-        background-color: steelblue;
-        padding: 3px;
+        background-color: rgba(7, 0, 12, 0.541);
+        padding: 4px 7px 4px 4px;
         margin-bottom: .5rem;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
 
         @include phone {
-            margin-top: 4px;
+          height: 32px;
 
         }
 
