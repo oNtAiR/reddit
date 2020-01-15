@@ -15,6 +15,9 @@
     justify-content: center;
     //border: 1px solid red;
 
+    @include phone {
+        justify-content: start;
+    }
     
      
     h3 {
@@ -24,7 +27,7 @@
         padding-right: 10px;
         padding-left: 5px;
         //margin-right: 10px;
-        border: 2px solid tomato;
+        border: 2px solid #51bbad;
         border-right: none;
         border-top-left-radius: 10px;
         font-size: 1rem;
