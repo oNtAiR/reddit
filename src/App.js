@@ -255,10 +255,11 @@ class App extends React.Component {
       <div className={SS.pick}>
       {/* <h3>Pick a SubReddit or add your own:</h3> */}
       <div className={SS.addyourown}>
-      <input type="text" placeholder="Add your own" value={this.state.newSub} onChange={e => this.updateV(e)}></input>
+        <label htmlFor="slack">.
+      <input type="text" name="slack" id="slack" placeholder="Add your own" value={this.state.newSub} onChange={e => this.updateV(e)}/></label>
             <button className={SS.addbutton} onClick={() => this.addButton()}>Add</button>
             </div>
-      </div>
+      </div> 
       <div className={SS.error}>
         {this.state.realSub ? <p className={SS.grow}>"{this.state.newSub}" does not exit</p> : <p></p>}
       </div>
