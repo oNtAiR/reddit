@@ -40,6 +40,10 @@
         &.active {
             background-color: violet;
         }
+
+        &:focus {
+            outline: none;
+        }
         
     }
 }

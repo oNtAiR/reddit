@@ -87,6 +87,7 @@ class App extends React.Component {
       
     })
       .catch(error => {
+        console.log(error)
         this.setState({ realSub: true})
         setTimeout(() => {
           this.setState({ realSub: false, newSub:''})
