@@ -19,7 +19,7 @@
     }
 
     .active {
-        background-color: rgb(247, 54, 20);
+        background-color: tomato;
        
        
         font-weight: bold;
@@ -30,7 +30,7 @@
     }
 
     button {
-        background: tomato;
+        background: #51bbad;
         border: none;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
@@ -81,11 +81,12 @@
 
     img {
         height: 42px;
-        background-color: rgb(241, 78, 49);
+        background-color: #51bbad;
         padding: 4px 7px 4px 4px;
         margin-bottom: .5rem;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
+        border-left: 1px solid black;
 
         @include phone {
           height: 32px;

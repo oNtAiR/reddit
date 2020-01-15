@@ -13,12 +13,19 @@
     flex-wrap: wrap;
     justify-content: center;
     //border: 1px solid red;
+
+    
      
     h3 {
         margin: 0;
-        padding-top: 5px;
-        margin-right: 10px;
-
+        padding-top: 3px;
+        padding-right: 10px;
+        padding-left: 5px;
+        //margin-right: 10px;
+        border: 2px solid tomato;
+        border-right: none;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
         @include phone {
             font-size: 1rem;
             //margin-bottom: .5rem;
@@ -41,13 +48,14 @@
         box-shadow: 0 20px 60px -5px rgba(0,0,0,0.3), 0 7px 36px -10px rgba(0,0,0,0.33);
         transition: all ease-in-out .3s;
 
-        
+
         
 
 
         &:hover {
             cursor: pointer;
-            box-shadow: 0 30px 80px 3px rgba(0,0,0,0.3), 0 20px 50px -10px rgba(0,0,0,0.3);
+            //box-shadow: 0 30px 80px 3px rgba(0,0,0,0.3), 0 20px 50px -10px rgba(0,0,0,0.3);
+            background-color: tomato;
         }
 
         @include phone {
@@ -55,13 +63,17 @@
         }
 
         &.active {
-            background-color: violet;
+            background-color: tomato;
         }
 
         &:focus {
             outline: none;
         }
         
+    }
+
+    &:last-child {
+        border-bottom-right-radius: 10px;
     }
 }
 
