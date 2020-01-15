@@ -19,7 +19,7 @@
     }
 
     .active {
-        background-color: tomato;
+        background-color: rgb(247, 54, 20);
        
        
         font-weight: bold;
@@ -30,7 +30,7 @@
     }
 
     button {
-        background: rgb(241, 111, 88);
+        background: tomato;
         border: none;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
@@ -81,7 +81,7 @@
 
     img {
         height: 42px;
-        background-color: rgba(7, 0, 12, 0.541);
+        background-color: rgb(241, 78, 49);
         padding: 4px 7px 4px 4px;
         margin-bottom: .5rem;
         border-top-right-radius: 20px;

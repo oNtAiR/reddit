@@ -265,7 +265,7 @@ class App extends React.Component {
       
 
       < Subred handleClick={this.handleClick} list={this.state.list}  removeSub={this.removeSub} active={this.state.subName}/>
-      <h3>Sort By:</h3>
+      
      < Selection changeSelect={this.changeSelect} selection={this.state.selection}/>
 
      {this.state.loading ? <div className={SS.load}><img src={logo} alt="loading"></img></div> : < Data tops={this.state.tops}  /> }

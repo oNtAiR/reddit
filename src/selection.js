@@ -14,7 +14,7 @@ render() {
 
     return (
         <div className={SS.select}>
-
+          <h3>Sort By:</h3>
         {buttons.map((item, key) => {
           return (
             <button onClick={(e) => this.props.changeSelect(e)} key={key} className={`${this.props.selection === item ? SS.active : 'false'}`} id={item}>{item}</button>

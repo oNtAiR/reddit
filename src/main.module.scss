@@ -62,17 +62,17 @@
 // }
 
 
-.load {
-    max-width: 900px;
-    min-width: 300px;
-    margin: 0 auto;
+// .load {
+//     max-width: 900px;
+//     min-width: 300px;
+//     margin: 0 auto;
 
-    img {
-        object-fit: cover;
-        width: 100%;
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
+//     img {
+//         object-fit: cover;
+//         width: 100%;
+//         animation: App-logo-spin infinite 20s linear;
+//     }
+// }
 
 @keyframes App-logo-spin {
     from {
@@ -109,7 +109,7 @@
     height: 42px;
     font-size: 1.2rem;
     border-radius: 20px;
-    border: 5px solid tomato;
+    border: 3px solid tomato;
     margin-top: .5rem;
     padding-left: .5rem;
     @include phone {
