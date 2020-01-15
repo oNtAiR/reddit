@@ -53,7 +53,9 @@ class App extends React.Component {
   const whatt = JSON.stringify(this.state.list)
    
   const currentSub = JSON.stringify(this.state.isactive)
-   
+  const info = JSON.stringify(this.state.tops)
+
+  localStorage.setItem('tops', info)
    localStorage.setItem( 'subName', currentSub);
    
    localStorage.setItem('list', whatt);
