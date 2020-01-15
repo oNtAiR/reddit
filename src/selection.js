@@ -15,9 +15,9 @@ render() {
     return (
         <div className={SS.select}>
 
-        {buttons.map(item => {
+        {buttons.map((item, key) => {
           return (
-            <button onClick={(e) => this.props.changeSelect(e)} className={`${this.props.selection === item ? SS.active : 'false'}`} id={item}>{item}</button>
+            <button onClick={(e) => this.props.changeSelect(e)} key={key} className={`${this.props.selection === item ? SS.active : 'false'}`} id={item}>{item}</button>
           )
         })}
         
